@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Terrorism Detection Result</title>
+    <style>
+      body {
+        background-color: #001d3d;
+        color: #219ebc;
+        margin: 100px 250px;
+        word-spacing: 2px;
+        font-size: larger;
+      }
+      .whole_result {
+        background-color: #003566;
+        position: relative;
+        align-items: center;
+        padding: 50px;
+        border: solid 5px rgba(28, 28, 63, 0.568);
+        border-radius: 40px;
+      }
+
+      .result {
+        font-size: 50px;
+        font-weight: 800;
+        color: rgb(168, 90, 90);
+      }
+      .sentence {
+        border: solid 2px blue;
+        margin-right: 200px;
+        padding: 20px;
+      }
+      .url {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="whole_result">
+      <h1>Website Terrorism Detection Result</h1>
+      <p class="url-container">
+        The URL you entered: <span class="url">{{ url }}</span>
+      </p>
+      <p class="result">{{result}}</p>
+      <p class="sentence">
+        {% for sentence in prediction.split(', ') %} {{ loop.index }}. {{
+        sentence }}<br />
+        {% endfor %}
+      </p>
+      <br />
+    </div>
+  </body>
+</html>

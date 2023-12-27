@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Check Website for Terrorism-Related Content</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bigelow+Rules&family=Montserrat:wght@500&family=Open+Sans:wght@300&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      #detection-container {
+        float: left;
+        width: 50%;
+      }
+
+      #result-container {
+        float: right;
+        width: 50%;
+        display: none;
+      }
+
+      #background {
+        background-image: url("https://imgs.search.brave.com/9fwB5SdTMyuXxX7VmQ55U6C0Y6ZpPrztHQv5i83k6qw/rs:fit:880:533:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzg0L2Fl/L2Q1Lzg0YWVkNWNi/ZjExMjM5YmI0M2Vl/Y2U3NzI4Y2E5NjYz/LmpwZw");
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+        height: 500px;
+      }
+
+      li,
+      a,
+      button {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10px;
+        background-color: rgba(96, 153, 167, 0.69);
+      }
+
+      button {
+        background-color: rgb(0, 136, 169);
+        padding: 5px;
+        width: 100px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+      }
+
+      button:hover {
+        background-color: rgb(0, 136, 169, 0.8);
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: rgb(168, 214, 214);
+      }
+      .logo {
+        cursor: pointer;
+      }
+
+      .nav-links {
+        list-style: none;
+      }
+
+      .nav-links li {
+        display: inline-block;
+        padding: 0px 20px;
+      }
+
+      .nav-links li a {
+        transition: all 0.3s ease 0s;
+      }
+
+      .nav-links li a:hover {
+        color: #0088a9;
+      }
+
+      h1 {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 0px;
+        color: rgb(161, 51, 51);
+      }
+
+      #detection {
+        background-color: #5b909e;
+      }
+
+      form {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      input[type="text"] {
+        width: 400px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="background">
+      <header>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="cta" href="#"><button>Contact</button></a>
+      </header>
+    </section>
+
+    <section id="detection">
+      <h1>Check Website for Terrorism-Related Content</h1>
+      <div class="form">
+        <form method="POST" action="{{ url_for('check') }}">
+          <label for="url">Enter a website URL:</label>
+          <input type="text" id="url" name="url" required />
+          <input type="submit" value="Check" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
